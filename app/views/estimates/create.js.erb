@@ -1,0 +1,5 @@
+<% if @status == 'fail' %>
+alert('error!');
+<% end %>
+window.location.replace('<%= estimates_path %>');
+$("#estimate-modal").modal("hide");

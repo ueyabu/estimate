@@ -16,10 +16,15 @@ class EstimatesController < ApplicationController
   def new
     @estimate = Estimate.new
 		@projects = Project.all
-		if @projects.empty?
-			#redirect_to controller: 'projects', action: 'index', notice: '案件がありません'
-			flash.now[:error] = "案件を作成してください"
-			render 'projects/index'
+
+		respond_to do |format|
+			if @projects.empty?
+				flash.now[:error] = "案件を作成してください"
+				render 'projects/index'
+			else
+				format.html { redirect_to @estimate }
+				format.js {}
+			end
 		end
   end
 
@@ -36,9 +41,11 @@ class EstimatesController < ApplicationController
       if @estimate.save
         format.html { redirect_to @estimate, notice: 'Estimate was successfully created.' }
         format.json { render :show, status: :created, location: @estimate }
+				format.js { @status = "success"}
       else
         format.html { render :new }
         format.json { render json: @estimate.errors, status: :unprocessable_entity }
+				format.js { @status = "fail"}
       end
     end
   end

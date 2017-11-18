@@ -30,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Estimate', new_estimate_path %>
+<%= link_to 'New Estimate', new_estimate_path, remote: true, class: "btn btn-lg btn-primary" %>
+
+<div id="estimate-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
