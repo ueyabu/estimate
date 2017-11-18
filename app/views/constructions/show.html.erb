@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @construction.name %>
+</p>
+
+<p>
+  <strong>Specification:</strong>
+  <%= @construction.specification %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @construction.number %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @construction.unit %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @construction.unit_price %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @construction.amount %>
+</p>
+
+<%= link_to 'Edit', edit_construction_path(@construction) %> |
+<%= link_to 'Back', constructions_path %>

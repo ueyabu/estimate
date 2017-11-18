@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  customer_name: MyString
+  property_name: MyString
+  property_location: MyString
+  construction_period: MyString
+  payment_terms: MyString
+  stimated_expiration: MyString
+
+two:
+  code: MyString
+  customer_name: MyString
+  property_name: MyString
+  property_location: MyString
+  construction_period: MyString
+  payment_terms: MyString
+  stimated_expiration: MyString

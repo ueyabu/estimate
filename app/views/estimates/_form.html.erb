@@ -1,0 +1,35 @@
+<%= form_with(model: estimate, local: true) do |form| %>
+  <% if estimate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(estimate.errors.count, "error") %> prohibited this estimate from being saved:</h2>
+
+      <ul>
+      <% estimate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :total_price %>
+    <%= form.number_field :total_price, id: :estimate_total_price %>
+  </div>
+
+  <div class="field">
+  	<%= form.label :project_id %>
+  	<%= form.collection_select :project_id, Project.all, :id, :select_project, { prompt: '案件名(お客様名 + 物件所在地 + 物件名)を選択してください'} %>
+  </div>
+
+	<div class="field">
+  	<%= form.label '工事の種類' %>
+		<%= form.collection_check_boxes :construction_ids, Construction.all, :id, :name  do |f| %>
+			<%= f.label {f.check_box + f.text} %>
+		<% end %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

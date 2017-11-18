@@ -1,0 +1,52 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :project_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_name %>
+    <%= form.text_field :customer_name, id: :project_customer_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :property_name %>
+    <%= form.text_field :property_name, id: :project_property_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :property_location %>
+    <%= form.text_field :property_location, id: :project_property_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :construction_period %>
+    <%= form.text_field :construction_period, id: :project_construction_period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payment_terms %>
+    <%= form.text_field :payment_terms, id: :project_payment_terms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stimated_expiration %>
+    <%= form.text_field :stimated_expiration, id: :project_stimated_expiration %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

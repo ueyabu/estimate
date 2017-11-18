@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @project.code %>
+</p>
+
+<p>
+  <strong>Customer name:</strong>
+  <%= @project.customer_name %>
+</p>
+
+<p>
+  <strong>Property name:</strong>
+  <%= @project.property_name %>
+</p>
+
+<p>
+  <strong>Property location:</strong>
+  <%= @project.property_location %>
+</p>
+
+<p>
+  <strong>Construction period:</strong>
+  <%= @project.construction_period %>
+</p>
+
+<p>
+  <strong>Payment terms:</strong>
+  <%= @project.payment_terms %>
+</p>
+
+<p>
+  <strong>Stimated expiration:</strong>
+  <%= @project.stimated_expiration %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @estimate.total_price %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @estimate.project_id %>
+</p>
+
+<p>
+  <strong>Constructions:</strong>
+  <% @estimate.constructions.each do |const| %>
+		<li><%= const.name %></li>
+	<% end %>
+</p>
+
+<%= link_to 'Edit', edit_estimate_path(@estimate) %> |
+<%= link_to 'Back', estimates_path %>

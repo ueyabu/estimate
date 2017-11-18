@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<table border=2>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Customer name</th>
+      <th>Property name</th>
+      <th>Property location</th>
+      <th>Construction period</th>
+      <th>Payment terms</th>
+      <th>Stimated expiration</th>
+      <th>Operation</th>
+			<th>Estimates</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.code %></td>
+        <td><%= project.customer_name %></td>
+        <td><%= project.property_name %></td>
+        <td><%= project.property_location %></td>
+        <td><%= project.construction_period %></td>
+        <td><%= project.payment_terms %></td>
+				<td><%= project.stimated_expiration %></td>
+        <td>
+        	<%= link_to 'Edit', edit_project_path(project) %><br>
+        	<%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+				</td>
+				<td>
+					<% if project.created_estimates? %>
+						<% project.estimates.each do |estimate| %>
+							<li><%= link_to estimate.id, estimate  %></li>
+						<% end %>
+					<% else %>
+						None
+					<% end %>
+				</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>

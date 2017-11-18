@@ -1,0 +1,47 @@
+<%= form_with(model: construction, local: true) do |form| %>
+  <% if construction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(construction.errors.count, "error") %> prohibited this construction from being saved:</h2>
+
+      <ul>
+      <% construction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :construction_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :specification %>
+    <%= form.text_field :specification, id: :construction_specification %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.number_field :number, id: :construction_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit, id: :construction_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_price %>
+    <%= form.number_field :unit_price, id: :construction_unit_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, id: :construction_amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
